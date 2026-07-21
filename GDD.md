@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.0.1  
+**Versión:** 1.1.1  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -33,12 +33,12 @@
 ## 2. Estructura Core del Proyecto
 
 ### 2.1 Objetivo del Proyecto
-[Describe el propósito principal de este desarrollo, tanto a nivel de producto como académico].
+El proposito educativo de este proyecto, es aprender a llevar acabo una idea simple y convertirla en un proyecto rentable y deseado por los jugadores. En cuanto al proposito como producto, mi videojuego busca demostrar que no se necesita un concepto gigante ni un equipo triple A para crear un buen producto.
 
 ### 2.2 Diseño e investigación
-- **Definición de idea:** [Explicación ampliada de qué trata el juego].
+- **Definición de idea:** El jugador, encarnando a un vampiro, jugara varios niveles donde se desplazara del punto A al punto B, evitando ser descubierto por los enemigos, este dispone de sombras y muebles para cortar la vision de los guardias, estos muebles, que el usuario puede controlar mentalmente usando el mouse, tambien sirven para obstruir el otro obstaculo presente, la luz del sol. Al completar 10 niveles, donde alcanzo su objetivo de eliminar a toda la familia, el jugador sera recompensado con la pantalla de victoria.
 - **Género:** Sigilo, Dungeon Crawler, Puzzle.
-- **Referencias:** [Juegos similares, películas, libros o estéticas que sirvan de inspiración].
+- **Referencias:** LLLOOOT!,Vampire Skills, Castlevania 3, Meccha chameleon, algunos de estos juegos tratan sobre la mecanica de sigilo, otros se enfocan en la atmosfera de un juego centrado en vampiros.
 - **Público objetivo:** Jugadores de entre 8 a 20 años, un publico mas juvenil y casual.
 - **Mecánicas principales:** Esconderse en las sombras, controlar muebles con la mente para ocluir la vista de los guardias o bloquear la luz solar, asesinatos sigilosos por la espalda.
 
