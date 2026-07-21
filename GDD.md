@@ -7,17 +7,17 @@
 
 # GAME DESIGN DOCUMENT (GDD)
 
-**Nombre del Juego:** [Ingresa el nombre del juego]  
-**Versión:** 0.0.0  
-**Fecha de actualización:** [DD/MM/AAAA]
+**Nombre del Juego:** [Almuerzo sangriento]  
+**Versión:** 1.0.0  
+**Fecha de actualización:** [21/07/2026]
 
 ## Ficha del Grupo
 | Apellido y Nombre Completo | Función dentro del grupo |
 | :--- | :--- |
-| [Nombre del alumno] | Game Designer / Level Design |
-| [Nombre del alumno] | Artist |
-| [Nombre del alumno] | Programmer |
-| [Nombre del alumno] | Producer |
+| [Angel Rios] | Game Designer / Level Design |
+| [Angel Rios] | Artist |
+| [Angel Rios] | Programmer |
+| [Angel Rios] | Producer |
 
 ---
 
