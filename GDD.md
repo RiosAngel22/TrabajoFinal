@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.1.1  
+**Versión:** 1.2.1  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -22,9 +22,7 @@
 ---
 
 ## 1. High Concept y Visión Inicial
-> *Nota: Es sumamente importante que en esta primera página haya un dibujo, arte conceptual o screenshot que dé la idea de cómo es el juego para que se entienda sin necesidad de leer mucho.*
-
-**[Insertar aquí imagen de pre-producción generada por IA que represente el mood/escena del juego]**
+(imagenes/Arte conceptual.png)
 
 **High Concept:** Juego de sigilo Topdown Dungeon Crawler, donde un vampiro debe infiltrarse a varios castillos, asesinar a los guardias sin ser visto, usando y controlando el ambiente a su favor, evitando la luz del sol, para llegar al miembro real y devorarlo.
 
