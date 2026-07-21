@@ -7,17 +7,17 @@
 
 # GAME DESIGN DOCUMENT (GDD)
 
-**Nombre del Juego:** [Almuerzo sangriento]  
-**Versión:** 1.0.0  
-**Fecha de actualización:** [21/07/2026]
+**Nombre del Juego:** Almuerzo sangriento  
+**Versión:** 1.0.1  
+**Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
 | Apellido y Nombre Completo | Función dentro del grupo |
 | :--- | :--- |
-| [Angel Rios] | Game Designer / Level Design |
-| [Angel Rios] | Artist |
-| [Angel Rios] | Programmer |
-| [Angel Rios] | Producer |
+| Angel Rios | Game Designer / Level Design |
+| Angel Rios | Artist |
+| Angel Rios | Programmer |
+| Angel Rios | Producer |
 
 ---
 
@@ -26,7 +26,7 @@
 
 **[Insertar aquí imagen de pre-producción generada por IA que represente el mood/escena del juego]**
 
-**High Concept:** [El núcleo del juego en una frase. Debe encapsular la esencia del proyecto de forma clara y atractiva, destacando lo que lo hace único].
+**High Concept:** Juego de sigilo Topdown Dungeon Crawler, donde un vampiro debe infiltrarse a varios castillos, asesinar a los guardias sin ser visto, usando y controlando el ambiente a su favor, evitando la luz del sol, para llegar al miembro real y devorarlo.
 
 ---
 
@@ -37,10 +37,10 @@
 
 ### 2.2 Diseño e investigación
 - **Definición de idea:** [Explicación ampliada de qué trata el juego].
-- **Género:** [Ej: Plataformas 2D, RPG de acción, Puzzle, etc.].
+- **Género:** Sigilo, Dungeon Crawler, Puzzle.
 - **Referencias:** [Juegos similares, películas, libros o estéticas que sirvan de inspiración].
-- **Público objetivo:** [A quién va dirigido el juego (edad, tipo de jugador casual/hardcore)].
-- **Mecánicas principales:** [Las acciones fundamentales que el jugador realizará constantemente].
+- **Público objetivo:** Jugadores de entre 8 a 20 años, un publico mas juvenil y casual.
+- **Mecánicas principales:** Esconderse en las sombras, controlar muebles con la mente para ocluir la vista de los guardias o bloquear la luz solar, asesinatos sigilosos por la espalda.
 
 ### 2.3 Concepto del Juego
 [Descripción más detallada del universo, la historia (si la hay) y el gancho principal del gameplay].
