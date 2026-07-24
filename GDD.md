@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.2.4  
+**Versión:** 1.2.5  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -41,16 +41,19 @@ El proposito educativo de este proyecto, es aprender a llevar acabo una idea sim
 - **Mecánicas principales:** Esconderse en las sombras, controlar muebles con la mente para ocluir la vista de los guardias o bloquear la luz solar, asesinatos sigilosos por la espalda.
 
 ### 2.3 Concepto del Juego
-[Descripción más detallada del universo, la historia (si la hay) y el gancho principal del gameplay].
+Situado en la edad media, jugamos como el ultimo vampiro de un largo linaje, cuya familia fue derrocada por un cambio en los horarios de sueño. Los enemigos viven en un castillo, por lo que cada nivel constara de varias habitaciones conectadas adentro de este, donde el jugador debera usar el ambiente a su favor para evitar a los guardias en armadura. El objetivo principal, mencionado anteriormente, es asesinar a cada miembro de la familia real, para que el decreto del rey (que dormir la siesta los mantendra seguros) sea visto como una farsa, y la gente vuelva a la vida normal, para volver a ser presas. El juego se desarrolla enteramente adentro del castillo, por lo que desarrollar el resto del reino no es necesario, pero este consta en su mayoria de pequeñas chozas conectadas por calles de piedra, y grandes bosques al limite de estas, creando un lugar perfecto para la caza de humanos.
+Por otro lado, la razon por la que el joven vampiro sigue vivo, es que al ser el mas joven del clan, no tenia permitido cazar, sino que los mas grandes lo alimentaban. Al morir estos, el vampiro inexperto se ve obligado a crecer, y tomar rienda de su propio destino.
 
 ### 2.4 Premisas del Videojuego
 [Reglas inquebrantables del universo del juego, verdades fundamentales sobre la narrativa o el diseño que guiarán todo el desarrollo].
 
 ### 2.5 Condiciones del Desarrollo
-[Herramientas a utilizar (Ej: Unity, Godot), motor gráfico, repositorios de Git, metodologías de trabajo, tiempos y limitaciones de hardware].
+El motor elegido sera Godot 4 en 2D. Se utilizara este repositorio de git, con una carpeta llamada desarrollo que contendra todos los archivos necesarios para la ejecución.
+Por otro lado, la metodologia de trabajo, basada en programación orientada a objetos, se enfocara en que el jugador, obstaculos y enemigos sean funcionales primero, luego desarrollara el ambiente de juego de un nivel, y por ultimo se desarrollara el arte y la interfaz. Un juego de este tamaño, con una larga cantidad de elementos reutilizables, no deberia tardar mas de un par de meses (estimado 2 o 3), y al ser un estilo tan simple con arte pixel art, no deberia sufrir ningun tipo de limitaciones de hardware en computadoras modernas.
 
 ### 2.6 Alcance del proyecto
-[Qué se va a entregar exactamente: ¿Un prototipo funcional? ¿Un nivel completo (Vertical Slice)? Define claramente dónde empieza y dónde termina el trabajo].
+El trabajo que sera entregado, puede ser definido como una demo. El prototipo incluira 3 niveles, en los que tendriamos que eliminar a 3 objetivos, para demostrar plenamente como funcionaria el concepto. 
+El juego empieza en el primer nivel, explicando la mecanica de sigilo y el objetivo. En el segundo le brindariamos al jugador la capacidad de mover los muebles con la mente, usando estos como barrera contra el sol y bloque visual contra los guardias, y en el tercero usariamos esos 2 elementos para eliminar al rey, completando la demostración.
 
 ---
 
