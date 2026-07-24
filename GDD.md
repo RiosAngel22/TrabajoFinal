@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.2.5  
+**Versión:** 1.3.5  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -45,7 +45,13 @@ Situado en la edad media, jugamos como el ultimo vampiro de un largo linaje, cuy
 Por otro lado, la razon por la que el joven vampiro sigue vivo, es que al ser el mas joven del clan, no tenia permitido cazar, sino que los mas grandes lo alimentaban. Al morir estos, el vampiro inexperto se ve obligado a crecer, y tomar rienda de su propio destino.
 
 ### 2.4 Premisas del Videojuego
-[Reglas inquebrantables del universo del juego, verdades fundamentales sobre la narrativa o el diseño que guiarán todo el desarrollo].
+Las reglas a tener en cuenta para desarrollar esta narrativa son:
+- Los vampiros no pueden tocar la luz solar emanante de las ventanas, se considera Game Over instantaneo.
+- Los guardias tardan unos segundos en darse cuenta si el vampiro esta en frente de ellos, al ser visto, se considera Game Over.
+- Los guardias solo pueden ser asesinados por la espalda, pero el objetivo, al encontrarse dormido, puede ser atacado desde cualquier dirección.
+- Cualquier cosa que no este pegada al piso (Armarios, mesas, o librerias) puede ser movido con la mente, y usado para bloquear la vista de los guardias y la luz solar.
+- Las sombras vuelven invisible al vampiro, pero solo por un corto periodo de tiempo, seguido de un cooldown.
+- Al asesinar al objetivo, el jugador avanza instantaneamente al siguiente nivel. 
 
 ### 2.5 Condiciones del Desarrollo
 El motor elegido sera Godot 4 en 2D. Se utilizara este repositorio de git, con una carpeta llamada desarrollo que contendra todos los archivos necesarios para la ejecución.
