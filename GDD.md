@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.3.5  
+**Versión:** 1.3.6  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -47,11 +47,10 @@ Por otro lado, la razon por la que el joven vampiro sigue vivo, es que al ser el
 ### 2.4 Premisas del Videojuego
 Las reglas a tener en cuenta para desarrollar esta narrativa son:
 - Los vampiros no pueden tocar la luz solar emanante de las ventanas, se considera Game Over instantaneo.
-- Los guardias tardan unos segundos en darse cuenta si el vampiro esta en frente de ellos, al ser visto, se considera Game Over.
-- Los guardias solo pueden ser asesinados por la espalda, pero el objetivo, al encontrarse dormido, puede ser atacado desde cualquier dirección.
-- Cualquier cosa que no este pegada al piso (Armarios, mesas, o librerias) puede ser movido con la mente, y usado para bloquear la vista de los guardias y la luz solar.
+- Cualquier cosa que no este pegada al piso (Armarios, mesas, o librerias) puede ser movido con la mente al ser clickeados con el mouse, y usado para bloquear la vista de los guardias y la luz solar.
 - Las sombras vuelven invisible al vampiro, pero solo por un corto periodo de tiempo, seguido de un cooldown.
-- Al asesinar al objetivo, el jugador avanza instantaneamente al siguiente nivel. 
+- Al asesinar al objetivo, el jugador avanza instantaneamente al siguiente nivel.
+- El juego sucede de dia, ya que si el vampiro esperase a la noche, el objetivo se despertaria y seria imposible atacarlo. 
 
 ### 2.5 Condiciones del Desarrollo
 El motor elegido sera Godot 4 en 2D. Se utilizara este repositorio de git, con una carpeta llamada desarrollo que contendra todos los archivos necesarios para la ejecución.
@@ -66,10 +65,22 @@ El juego empieza en el primer nivel, explicando la mecanica de sigilo y el objet
 ## 3. Diseño Detallado del Juego
 
 ### 3.1 Elementos del Juego
-[Enumerar y describir los distintos elementos que intervienen en el juego. Por ejemplo: Personaje principal, enemigos, ítems coleccionables, obstáculos, power-ups].
+- **Personaje principal:** Vampiro.
+- **Enemigo:** Caballero haciendo guardia, un solo tipo de enemigo.
+- **Muebles:** Mesa, libreria, Armario.
+- **Objetivo:** Persona dormida.
+- **Escondites:** Sombras, detras de muebles.
+- **Zonas de peligro:** Luz solar.
+- **Objetivo:** Persona dormida.
 
 ### 3.2 Reglas
-[Enumerar de la manera más detallada posible las reglas que gobiernan el comportamiento de los elementos, los límites del jugador y las condiciones de victoria y derrota].
+- El jugador solo puede controlar con el mouse un objeto a la vez.
+- Los enemigos reaccionan al jugador, pero no le dan importancia a los muebles flotantes.
+- El jugador camina a una velocidad fija, y no puede ser visto bajo ninguna condición.
+- Los guardias tardan unos segundos en darse cuenta si el vampiro esta en frente de ellos, al ser visto, se considera Game Over.
+- Los guardias solo pueden ser asesinados por la espalda, pero el objetivo, al encontrarse dormido, puede ser atacado desde cualquier dirección.
+- Ocultar la luz no crea nuevas zonas de sombra, las zonas de sombra son fijas.
+- El jugador gana el nivel automaticamente al tocar al objetivo.
 
 ### 3.3 Descripción de una sesión de juego
 [Describir aquí paso a paso cómo sería una sesión típica de juego desde que el usuario toma el control].
