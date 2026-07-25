@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.4.6  
+**Versión:** 1.4.7  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -47,7 +47,7 @@ Por otro lado, la razon por la que el joven vampiro sigue vivo, es que al ser el
 ### 2.4 Premisas del Videojuego
 Las reglas a tener en cuenta para desarrollar esta narrativa son:
 - Los vampiros no pueden tocar la luz solar emanante de las ventanas, se considera Game Over instantaneo.
-- Cualquier cosa que no este pegada al piso (Armarios, mesas, o librerias) puede ser movido con la mente al ser clickeados con el mouse, y usado para bloquear la vista de los guardias y la luz solar.
+- Cualquier cosa que no este pegada al piso (Armarios, mesas, o librerias) puede ser movido con la mente al ser clickeados con el mouse, y rotado al girar la rueda del mouse, y usado para bloquear la vista de los guardias y la luz solar.
 - Las sombras vuelven invisible al vampiro, pero solo por un corto periodo de tiempo, seguido de un cooldown.
 - Al asesinar al objetivo, el jugador avanza instantaneamente al siguiente nivel.
 - El juego sucede de dia, ya que si el vampiro esperase a la noche, el objetivo se despertaria y seria imposible atacarlo. 
