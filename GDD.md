@@ -102,4 +102,4 @@ Explicación sobre los componentes usados.
 ![Menu de inicio](imagenes/menuInicio.png)
 Ejemplo de menu de inicio
 
-**Estilo Visual y Sonoro:** [Descripción de la paleta de colores, estilo de arte (ej. Pixel Art, Low Poly) y el enfoque para la música y los efectos de sonido].
+**Estilo Visual y Sonoro:** Usando una paleta de colores fria y tenebrosa (azules, violetas, rojos oscuros, negros, etc) implementariamos un estilo pixel art muy estilizado, usando una interfaz graciosa, donde los emojis indican el peligro, las herramientas a disposición y el objetivo. En cuanto a la musica, se desarrollaria en una aplicacion musical midi, usando sintetizadores brillantes para conseguir un sonido musical similar al de castlevania 3, y usando una aplicación de sfx, creariamos sonidos al estilo 8 bits para completar la sensación retro.
