@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.4.7  
+**Versión:** 1.4.8  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -93,6 +93,13 @@ Al rejugar el videojuego, este desafio se ve reducido, ya que el jugador ya reco
 ---
 
 ## 4. Arte, Audio y Bocetos
-**Bocetos de Pantalla / UI:** [Incluir bocetos, wireframes o mockups de cómo se vería la pantalla de juego (HUD), menús principales y señalar en el mismo los elementos en pantalla].
+![Gameplay](imagenes/Gameplay.png)
+ilustración conceptual del gameplay.
+
+![Componentes del gameplay explicados](imagenes/componentes.png)
+Explicación sobre los componentes usados.
+
+![Menu de inicio](imagenes/menuInicio.png)
+Ejemplo de menu de inicio
 
 **Estilo Visual y Sonoro:** [Descripción de la paleta de colores, estilo de arte (ej. Pixel Art, Low Poly) y el enfoque para la música y los efectos de sonido].
