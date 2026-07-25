@@ -8,7 +8,7 @@
 # GAME DESIGN DOCUMENT (GDD)
 
 **Nombre del Juego:** Almuerzo sangriento  
-**Versión:** 1.3.6  
+**Versión:** 1.4.6  
 **Fecha de actualización:** 21/07/2026
 
 ## Ficha del Grupo
@@ -83,10 +83,12 @@ El juego empieza en el primer nivel, explicando la mecanica de sigilo y el objet
 - El jugador gana el nivel automaticamente al tocar al objetivo.
 
 ### 3.3 Descripción de una sesión de juego
-[Describir aquí paso a paso cómo sería una sesión típica de juego desde que el usuario toma el control].
+El usuario empieza la partida, y entra al nivel por una puerta, al ser topdown, puede ver todo el mapa desde el comienzo, empezara a desplazarse hacia el final del nivel tomando en cuenta la posición de los guardias. Al encontrarse al primer guardia notara que este se desplaza de un punto A a un punto B en un pequeño trayecto, tendra la opción de evitar su visión, esconderse entre las sombras, ocultarse detras de un obstaculo, o rodearlo y deshacerse de el. En cuanto a estos enfrentamientos, es posible resolverlos sin la necesidad de eliminar enemigos, pero esto seria mas complicado.
+Al encontrarse con la luz solar, las opciones son similares, esquivarla, o taparla con muebles, pero el verdadero desafio viene cuando debemos evitar la luz y los guardias al mismo tiempo, ya que debemos centrar nuestra atención en uno de los 2. Una vez superado el recorrido, el jugador llegara al objetivo, lo atacara, y pasara de nivel. Al completar los 3 niveles de la demo, el juego terminara.
 
 ### 3.4 Estética y Experiencia del Jugador
-[Describir las respuestas estéticas o sentimientos que se espera despertar en el usuario (Ej: tensión, relajación, nostalgia, desafío) y cómo las mecánicas lograrán ese efecto].
+Las emociones principales que se buscan emanar son tensión y desafio, manejar las rutas de los guardias mientras se evita el sol puede ser muy demandante para los jugadores mas novatos. La constante necesidad de mantenerse en movimiento es reemplazada con euforia al llegar a un lugar seguro y/o al objetivo principal. Este loop desafio recompensa es muy comun en los juegos de sigilo.
+Al rejugar el videojuego, este desafio se ve reducido, ya que el jugador ya reconoce los patrones de movimiento, sin embargo, este juego puede generar esta euforia en modo de jugabilidad "Speedrun". El nuevo objetivo se convierte en ganar los niveles en el menor tiempo posible, o quizas ganarlo sin ser visto ninguna ves, o sin tener ningun error, asegurando asi mas horas de juego emocionantes. 
 
 ---
 
