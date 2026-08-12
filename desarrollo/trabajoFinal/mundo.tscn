@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dfo12jiwdj2l7"]
+
+[ext_resource type="Texture2D" uid="uid://crajcim5pwuvo" path="res://sprites/vampiro.png" id="1_6ba58"]
+[ext_resource type="Script" uid="uid://dyf4208itt4f8" path="res://jugador.gd" id="1_lgngo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]
+radius = 18.110771
+
+[node name="mundo" type="Node2D" unique_id=171355147]
+
+[node name="Jugador" type="CharacterBody2D" parent="." unique_id=1337072275]
+position = Vector2(386, 215)
+script = ExtResource("1_lgngo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=508112273]
+texture_filter = 1
+texture = ExtResource("1_6ba58")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=979965126]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_lgngo")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=805965369]
+position = Vector2(386, 216)
+zoom = Vector2(1.5, 1.5)
