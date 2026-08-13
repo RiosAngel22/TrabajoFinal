@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://tr45svaxkcpc"]
+
+[ext_resource type="Script" uid="uid://dyf4208itt4f8" path="res://jugador.gd" id="1_jpodt"]
+[ext_resource type="Texture2D" uid="uid://crajcim5pwuvo" path="res://sprites/vampiro.png" id="2_njcx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]
+radius = 18.110771
+
+[node name="Jugador" type="CharacterBody2D" unique_id=729986226 groups=["jugador"]]
+script = ExtResource("1_jpodt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085744936]
+texture_filter = 1
+texture = ExtResource("2_njcx7")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046802547]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_lgngo")
+metadata/_edit_lock_ = true

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dfo12jiwdj2l7"]
+
+[ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://detector.gd" id="1_v12yk"]
+[ext_resource type="Texture2D" uid="uid://co6kilqgnta34" path="res://sprites/mascara_luz.png" id="2_16hu1"]
+[ext_resource type="PackedScene" uid="uid://tr45svaxkcpc" path="res://escenas/jugador.tscn" id="3_7oex1"]
+[ext_resource type="PackedScene" uid="uid://dihn8qct3erkr" path="res://escenas/mueble.tscn" id="4_4vydk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw4w5"]
+radius = 184.14777
+
+[node name="mundo" type="Node2D" unique_id=171355147]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=16258942]
+offset_right = 770.0
+offset_bottom = 433.0
+color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=805965369]
+position = Vector2(386, 216)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Detector" type="Node2D" parent="." unique_id=155116201]
+position = Vector2(187, 220)
+script = ExtResource("1_v12yk")
+
+[node name="Area2D" type="Area2D" parent="Detector" unique_id=1204340697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector/Area2D" unique_id=109465134]
+shape = SubResource("CircleShape2D_fw4w5")
+
+[node name="RayCast2D" type="RayCast2D" parent="Detector" unique_id=1818337828]
+
+[node name="luz" type="PointLight2D" parent="." unique_id=667104850]
+texture_filter = 1
+position = Vector2(187, 220)
+color = Color(1, 1, 0.02745098, 1)
+energy = 4.91
+shadow_enabled = true
+texture = ExtResource("2_16hu1")
+texture_scale = 1.41
+
+[node name="Jugador" parent="." unique_id=729986226 instance=ExtResource("3_7oex1")]
+position = Vector2(386, 215)
+
+[node name="mueble" parent="." unique_id=577772092 instance=ExtResource("4_4vydk")]
+position = Vector2(234, 166)
+
+[connection signal="body_entered" from="Detector/Area2D" to="Detector" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Detector/Area2D" to="Detector" method="_on_area_2d_body_exited"]
