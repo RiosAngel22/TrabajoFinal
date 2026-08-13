@@ -2,13 +2,54 @@
 
 [ext_resource type="Texture2D" uid="uid://crajcim5pwuvo" path="res://sprites/vampiro.png" id="1_6ba58"]
 [ext_resource type="Script" uid="uid://dyf4208itt4f8" path="res://jugador.gd" id="1_lgngo"]
+[ext_resource type="Texture2D" uid="uid://co6kilqgnta34" path="res://sprites/mascara_luz.png" id="3_aou4a"]
+[ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://detector.gd" id="3_fw4w5"]
+[ext_resource type="Texture2D" uid="uid://cn8eg4uwkftma" path="res://sprites/armario.png" id="4_otwa2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw4w5"]
+radius = 184.14777
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]
 radius = 18.110771
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]
+size = Vector2(20, 47)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aou4a"]
+polygon = PackedVector2Array(-13.5, -5.5000076, -13.5, 4.9999924, 13, 4.5, 13, -5.5)
+
 [node name="mundo" type="Node2D" unique_id=171355147]
 
-[node name="Jugador" type="CharacterBody2D" parent="." unique_id=1337072275]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=16258942]
+offset_right = 770.0
+offset_bottom = 433.0
+color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=805965369]
+position = Vector2(386, 216)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Detector" type="Node2D" parent="." unique_id=155116201]
+position = Vector2(187, 220)
+script = ExtResource("3_fw4w5")
+
+[node name="Area2D" type="Area2D" parent="Detector" unique_id=1204340697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector/Area2D" unique_id=109465134]
+shape = SubResource("CircleShape2D_fw4w5")
+
+[node name="RayCast2D" type="RayCast2D" parent="Detector" unique_id=1818337828]
+
+[node name="luz" type="PointLight2D" parent="." unique_id=667104850]
+texture_filter = 1
+position = Vector2(187, 220)
+color = Color(1, 1, 0.02745098, 1)
+energy = 4.91
+shadow_enabled = true
+texture = ExtResource("3_aou4a")
+texture_scale = 1.41
+
+[node name="Jugador" type="CharacterBody2D" parent="." unique_id=1337072275 groups=["jugador"]]
 position = Vector2(386, 215)
 script = ExtResource("1_lgngo")
 
@@ -22,6 +63,22 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_lgngo")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=805965369]
-position = Vector2(386, 216)
-zoom = Vector2(1.5, 1.5)
+[node name="mueble" type="CharacterBody2D" parent="." unique_id=767211826]
+position = Vector2(234, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mueble" unique_id=1594154103]
+shape = SubResource("RectangleShape2D_fw4w5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="mueble" unique_id=758880470]
+rotation = -1.5707964
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_aou4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="mueble" unique_id=1988357325]
+texture_filter = 1
+rotation = -1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("4_otwa2")
+
+[connection signal="body_entered" from="Detector/Area2D" to="Detector" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Detector/Area2D" to="Detector" method="_on_area_2d_body_exited"]
