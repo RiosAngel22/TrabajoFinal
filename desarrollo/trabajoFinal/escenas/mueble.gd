@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @onready var Icono : Sprite2D = $Icono
 var TweenIcono
@@ -11,12 +11,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if controlado:
-		global_position = lerp(global_position,get_global_mouse_position(),0.05)
+		velocity = get_global_mouse_position() - global_position
+		move_and_slide()
 		
 		if Input.is_action_just_pressed("rotar+"):
 			global_rotation = lerp(global_rotation,global_rotation + 0.5, 0.5)
 		elif Input.is_action_just_pressed("rotar-"):
 			global_rotation = lerp(global_rotation,global_rotation - 0.5, 0.5)
+		$Icono.global_rotation = 0
 	
 	if EnRango:
 		if Input.is_action_just_pressed("interactuar") and controlado == false:
