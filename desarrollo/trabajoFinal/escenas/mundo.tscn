@@ -186,5 +186,13 @@ position = Vector2(437, 215)
 light_mask = 0
 position = Vector2(95, 226)
 
-[node name="Guardia" parent="." unique_id=1571775218 instance=ExtResource("7_4vydk")]
-position = Vector2(233, 353)
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2070230994]
+position = Vector2(67, 383)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=379291942]
+position = Vector2(645, 386)
+
+[node name="Guardia" parent="." unique_id=1571775218 node_paths=PackedStringArray("Punto1", "Punto2") instance=ExtResource("7_4vydk")]
+position = Vector2(175, 384)
+Punto1 = NodePath("../Marker2D")
+Punto2 = NodePath("../Marker2D2")
