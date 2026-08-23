@@ -8,8 +8,9 @@ radius = 15.033297
 
 [node name="Jugador" type="CharacterBody2D" unique_id=729986226 groups=["jugador"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_jpodt")
+velocidad = 10000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085744936]
 texture_filter = 1

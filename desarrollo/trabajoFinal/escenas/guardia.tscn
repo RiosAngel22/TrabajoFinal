@@ -3,13 +3,28 @@
 [ext_resource type="Texture2D" uid="uid://cruebpcsl66mf" path="res://sprites/caballero.png" id="1_n1as5"]
 [ext_resource type="Script" uid="uid://cw7ge4hs7wbbl" path="res://escenas/guardia.gd" id="1_ps7vj"]
 [ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://detector.gd" id="2_qpqwa"]
-[ext_resource type="Texture2D" uid="uid://co6kilqgnta34" path="res://sprites/mascara_luz.png" id="3_xr62k"]
+
+[sub_resource type="Gradient" id="Gradient_xr62k"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ps7vj"]
+gradient = SubResource("Gradient_xr62k")
+fill = 1
+fill_from = Vector2(0.5304348, 0.5173913)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ps7vj"]
-polygon = PackedVector2Array(-1, 5, -81, -101, -47, 24, 44, 24, 79, -101, -81, -101, -69, -85, 65, -85)
+polygon = PackedVector2Array(-1, 5, -133, -167, -133, 102, 141, 102, 141, -168, -131, -168, -76, -85, 65, -85)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpqwa"]
 radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr62k"]
+size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ps7vj"]
+size = Vector2(50, 27)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ps7vj"]
 points = PackedVector2Array(-68, -85, 66, -85, 4, 0, -4, 0)
@@ -18,31 +33,49 @@ points = PackedVector2Array(-68, -85, 66, -85, 4, 0, -4, 0)
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_ps7vj")
-velocidad = 100.0
+velocidad = 1000.0
 Detector = NodePath("detector")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1110012862]
-light_mask = 0
-energy = 16.0
-range_item_cull_mask = 4
+light_mask = 512
+visibility_layer = 513
+color = Color(1, 1, 1, 0.25490198)
+range_item_cull_mask = 512
 shadow_enabled = true
-shadow_item_cull_mask = 4
-texture = ExtResource("3_xr62k")
-texture_scale = 0.7
+shadow_item_cull_mask = 512
+texture = SubResource("GradientTexture2D_ps7vj")
+texture_scale = 3.31
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1994157707]
 position = Vector2(1, 0)
 occluder = SubResource("OccluderPolygon2D_ps7vj")
-occluder_light_mask = 4
+occluder_light_mask = 512
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1259246540]
-light_mask = 0
 texture_filter = 1
 position = Vector2(0, -6)
 texture = ExtResource("1_n1as5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1572481673]
 shape = SubResource("CircleShape2D_qpqwa")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=816678324]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=311623001]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_xr62k")
+debug_color = Color(0.97429806, 0, 0.43122897, 0.41960785)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=100118485]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=17434796]
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_ps7vj")
+debug_color = Color(4.428029e-06, 0.64959973, 0.1496698, 0.41960785)
 
 [node name="detector" type="Node2D" parent="." unique_id=1737932328 node_paths=PackedStringArray("raycast", "area")]
 script = ExtResource("2_qpqwa")
@@ -59,3 +92,11 @@ shape = SubResource("ConvexPolygonShape2D_ps7vj")
 
 [node name="RayCast2D" type="RayCast2D" parent="detector" unique_id=640425012]
 collision_mask = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1242454056]
+one_shot = true
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name jugador
 
 @onready var sprite : Sprite2D = $Sprite2D
 
@@ -13,12 +14,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direccion := Input.get_vector("ui_down", "ui_up","ui_left","ui_right")
 	if direccion.x:
-		velocity.y = -direccion.x * velocidad * delta
+		velocity.y = -direccion.x * (velocidad * delta)
 	else:
 		velocity.y = lerp(velocity.y,0.0,0.3)
 		
 	if direccion.y:
-		velocity.x = direccion.y * velocidad * delta
+		velocity.x = direccion.y * (velocidad * delta)
 	else:
 		velocity.x = lerp(velocity.x,0.0,0.3)
 	
@@ -29,9 +30,7 @@ func _physics_process(delta: float) -> void:
 		rotacionActual = sprite.rotation
 	else:
 		sprite.rotation = rotacionActual
-	
-	
-	
+
 	move_and_slide()
 
 func crear_loop_flotar():
@@ -42,3 +41,6 @@ func crear_loop_flotar():
 		tweenflotacion.tween_property(sprite,"scale",sprite.scale*1.1,0.9)
 		tweenflotacion.tween_property(sprite,"scale",sprite.scale*0.9,0.9)
 		tweenflotacion.set_loops()
+
+func die():
+	queue_free()
