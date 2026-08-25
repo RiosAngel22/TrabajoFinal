@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cghynr1yxsmmv" path="res://sprites/tileset2.png" id="5_7oex1"]
 [ext_resource type="Texture2D" uid="uid://bdrem7o71thbb" path="res://sprites/tileset1.png" id="6_4vydk"]
 [ext_resource type="PackedScene" uid="uid://dw33puwj6gqm5" path="res://escenas/guardia.tscn" id="7_4vydk"]
+[ext_resource type="PackedScene" uid="uid://cjhg3jcp381uv" path="res://escenas/sombra.tscn" id="7_txhqv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7oex1"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, -5.036044, -5.2159023, -5.036044, -5.036045, 8, -8, 8)
@@ -207,3 +208,7 @@ position = Vector2(271, 319)
 Puntos = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=459718665]
+
+[node name="Sombra" parent="." unique_id=73104488 instance=ExtResource("7_txhqv")]
+position = Vector2(441, 295.75)
+scale = Vector2(6.6874995, 1.1640625)

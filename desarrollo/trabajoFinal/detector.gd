@@ -14,6 +14,7 @@ func _ready() -> void:
 	area.body_exited.connect(_on_area_2d_body_exited)
 
 func _process(delta: float) -> void:
+	#detecta y sigue al jugador, si entra en rango, notifica
 	if jugador:
 		raycast.target_position = to_local(jugador.position)
 		

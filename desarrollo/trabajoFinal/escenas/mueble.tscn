@@ -113,6 +113,7 @@ occluder = SubResource("OccluderPolygon2D_aou4a")
 [node name="Objeto" type="Sprite2D" parent="." unique_id=2060291851]
 texture_filter = 1
 material = SubResource("ShaderMaterial_1cqa5")
+position = Vector2(1, 0)
 rotation = -1.5707964
 scale = Vector2(2, 2)
 texture = ExtResource("1_4aonu")
@@ -121,7 +122,7 @@ texture = ExtResource("1_4aonu")
 light_mask = 0
 z_index = 1
 texture_filter = 1
-position = Vector2(34, -30)
+position = Vector2(0, -41)
 texture = ExtResource("3_6imys")
 
 [node name="AreaTelepatia" type="Area2D" parent="." unique_id=2055103086]

@@ -7,7 +7,7 @@
 radius = 15.033297
 
 [node name="Jugador" type="CharacterBody2D" unique_id=729986226 groups=["jugador"]]
-collision_layer = 2
+collision_layer = 18
 collision_mask = 13
 script = ExtResource("1_jpodt")
 velocidad = 10000.0
@@ -17,7 +17,17 @@ texture_filter = 1
 texture = ExtResource("2_njcx7")
 metadata/_edit_lock_ = true
 
+[node name="RayCast2D" type="RayCast2D" parent="Sprite2D" unique_id=1950901965]
+target_position = Vector2(0, -40)
+collision_mask = 4
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046802547]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_lgngo")
 metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1225373349]
+visible = false
+modulate = Color(0, 1, 1, 1)
+light_mask = 0
+polygon = PackedVector2Array(0, -16, -13, -34, 13, -34)

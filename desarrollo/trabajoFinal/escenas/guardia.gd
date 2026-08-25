@@ -8,11 +8,12 @@ extends CharacterBody2D
 var ObjetivoActual : Marker2D
 var PuntoActual : int
 
-var jugadorEncontrado : CharacterBody2D
-var jugadorEnRangoAdelante : CharacterBody2D
-var jugadorEnRangoDetras : CharacterBody2D
+var jugadorEncontrado : jugador
+var jugadorEnRangoAdelante : jugador
+var jugadorEnRangoDetras : jugador
 
 func _ready() -> void:
+	#seteamos la siguiente posicion del guardia
 	ObjetivoActual = Puntos[0]
 	PuntoActual = 0
 	Detector.Detectado.connect(_on_detector_detectado)
@@ -20,29 +21,36 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	#si ve al jugador lo sigue, sino, camina normal
 	if jugadorEncontrado:
 		seguir(delta)
 	else:
 		merodear(delta)
 	
-	if jugadorEnRangoDetras and Input.is_action_just_pressed("click"):
+	#si el jugador esta detras, mirando al guardia, este puede morir
+	if jugadorEnRangoDetras and Input.is_action_just_pressed("click") and jugadorEnRangoDetras.puedeAtacar == true:
 		die()
 	
 	move_and_slide()
 
 
 func _on_detector_detectado(jugador : CharacterBody2D) -> void:
+	#el guardia ve al jugador
 	jugadorEncontrado = jugador
 
 func merodear(delta:float)->void:
+	#funcion para seguir una ruta
+	
 	var direccion : Vector2
 	
+	#mira y sigue un objetivo
 	direccion = (ObjetivoActual.global_position - global_position).normalized()
-	
 	velocity = direccion * (velocidad * delta)
 	look_at(ObjetivoActual.global_position)
 	global_rotation = global_rotation + (PI/180*90)
 	
+	#busca el siguiente objetivo
 	if global_position.distance_to(ObjetivoActual.global_position) < 5:
 		PuntoActual+=1
 		if PuntoActual >= Puntos.size():
@@ -54,38 +62,42 @@ func merodear(delta:float)->void:
 func seguir(delta:float)->void:
 	var direccion : Vector2
 	
+	#mira y sigue al jugador
 	direccion = (jugadorEncontrado.global_position - global_position).normalized()
-	
 	velocity = direccion * (velocidad * delta)
 	look_at(jugadorEncontrado.global_position)
 	global_rotation = global_rotation + (PI/180*90)
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body is jugador:
+	#jugador en rango de ataque
+	if body.is_in_group("jugador"):
 		$Timer.start()
 		jugadorEnRangoAdelante = body
 
 func _on_hit_box_body_exited(body: Node2D) -> void:
-	if body is jugador:
+	#jugador fuera de rango de ataque
+	if body.is_in_group("jugador"):
 		$Timer.stop()
 		$Timer.wait_time = 1
 		jugadorEnRangoAdelante = null
 
 func _on_timer_timeout() -> void:
+	#despues de una pausa, si el jugador sigue en rango, el guardia ataca
 	if jugadorEnRangoAdelante:
 		jugadorEnRangoAdelante.die()
 	
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body is jugador:
+	#el guardia tiene al jugador detras
+	if body.is_in_group("jugador"):
 		$Imagen.material.set_shader_parameter("color", Color.RED)
 		jugadorEnRangoDetras = body
-	
-func die():
-	queue_free()
-
 
 func _on_hurt_box_body_exited(body: Node2D) -> void:
-	if body is jugador:
+	#el guardia se alejo del jugador
+	if body.is_in_group("jugador"):
 		$Imagen.material.set_shader_parameter("color", Color.TRANSPARENT)
 		jugadorEnRangoDetras = null
+
+func die():
+	queue_free()
