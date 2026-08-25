@@ -25,11 +25,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	if direccion:
-		sprite.rotation = (PI/180+(direccion.angle()))
-		rotacionActual = sprite.rotation
-	else:
-		sprite.rotation = rotacionActual
+	sprite.look_at(get_global_mouse_position()) 
+	sprite.global_rotation += (PI/180*90)
 
 	move_and_slide()
 

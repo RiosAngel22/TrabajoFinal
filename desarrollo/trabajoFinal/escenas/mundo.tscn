@@ -187,9 +187,8 @@ metadata/_edit_lock_ = true
 position = Vector2(15, 116)
 
 [node name="Jugador" parent="." unique_id=729986226 instance=ExtResource("3_7oex1")]
-visible = false
 light_mask = 0
-position = Vector2(95, 226)
+position = Vector2(139, 103)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2070230994]
 position = Vector2(250, 318)

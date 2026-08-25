@@ -9,19 +9,25 @@ var ObjetivoActual : Marker2D
 var PuntoActual : int
 
 var jugadorEncontrado : CharacterBody2D
-var jugadorEnRango : CharacterBody2D
+var jugadorEnRangoAdelante : CharacterBody2D
+var jugadorEnRangoDetras : CharacterBody2D
 
 func _ready() -> void:
 	ObjetivoActual = Puntos[0]
 	PuntoActual = 0
 	Detector.Detectado.connect(_on_detector_detectado)
+	$Imagen.material.set_shader_parameter("color", Color.TRANSPARENT)
+
 
 func _physics_process(delta: float) -> void:
 	if jugadorEncontrado:
 		seguir(delta)
 	else:
 		merodear(delta)
-
+	
+	if jugadorEnRangoDetras and Input.is_action_just_pressed("click"):
+		die()
+	
 	move_and_slide()
 
 
@@ -58,21 +64,28 @@ func seguir(delta:float)->void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body is jugador:
 		$Timer.start()
-		jugadorEnRango = body
+		jugadorEnRangoAdelante = body
 
 func _on_hit_box_body_exited(body: Node2D) -> void:
 	if body is jugador:
 		$Timer.stop()
 		$Timer.wait_time = 1
-		jugadorEnRango = null
+		jugadorEnRangoAdelante = null
 
 func _on_timer_timeout() -> void:
-	if jugadorEnRango:
-		jugadorEnRango.die()
+	if jugadorEnRangoAdelante:
+		jugadorEnRangoAdelante.die()
 	
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body is jugador and Input.is_action_pressed("click"):
-		die()
+	if body is jugador:
+		$Imagen.material.set_shader_parameter("color", Color.RED)
+		jugadorEnRangoDetras = body
 	
 func die():
 	queue_free()
+
+
+func _on_hurt_box_body_exited(body: Node2D) -> void:
+	if body is jugador:
+		$Imagen.material.set_shader_parameter("color", Color.TRANSPARENT)
+		jugadorEnRangoDetras = null

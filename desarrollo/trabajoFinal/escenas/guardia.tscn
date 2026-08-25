@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cruebpcsl66mf" path="res://sprites/caballero.png" id="1_n1as5"]
 [ext_resource type="Script" uid="uid://cw7ge4hs7wbbl" path="res://escenas/guardia.gd" id="1_ps7vj"]
+[ext_resource type="Shader" uid="uid://b6kevkn5wtw0h" path="res://escenas/Borde.gdshader" id="2_ps7vj"]
 [ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://detector.gd" id="2_qpqwa"]
 
 [sub_resource type="Gradient" id="Gradient_xr62k"]
@@ -17,6 +18,15 @@ fill_to = Vector2(1, 1)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ps7vj"]
 polygon = PackedVector2Array(-1, 5, -133, -167, -133, 102, 141, 102, 141, -168, -131, -168, -76, -85, 65, -85)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mf7qf"]
+shader = ExtResource("2_ps7vj")
+shader_parameter/color = Color(1, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpqwa"]
 radius = 12.0
 
@@ -24,7 +34,7 @@ radius = 12.0
 size = Vector2(36, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ps7vj"]
-size = Vector2(50, 27)
+size = Vector2(30, 27)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ps7vj"]
 points = PackedVector2Array(-68, -85, 66, -85, 4, 0, -4, 0)
@@ -51,8 +61,9 @@ position = Vector2(1, 0)
 occluder = SubResource("OccluderPolygon2D_ps7vj")
 occluder_light_mask = 512
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1259246540]
+[node name="Imagen" type="Sprite2D" parent="." unique_id=1259246540]
 texture_filter = 1
+material = SubResource("ShaderMaterial_mf7qf")
 position = Vector2(0, -6)
 texture = ExtResource("1_n1as5")
 
@@ -91,7 +102,7 @@ collision_mask = 2
 shape = SubResource("ConvexPolygonShape2D_ps7vj")
 
 [node name="RayCast2D" type="RayCast2D" parent="detector" unique_id=640425012]
-collision_mask = 2
+collision_mask = 3
 
 [node name="Timer" type="Timer" parent="." unique_id=1242454056]
 one_shot = true
@@ -99,4 +110,5 @@ one_shot = true
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
