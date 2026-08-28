@@ -12,7 +12,6 @@ class_name jugador
 @export var CantidadDeSangreAbsorvida : float = 30
 
 var rotacionActual : float = 0
-
 var tweenflotacion : Tween
 
 var puedeAtacar := false
@@ -112,3 +111,8 @@ func crear_loop_flotar():
 func die():
 	#funcion de morir
 	queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemigo"):
+		body.die()
