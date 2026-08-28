@@ -172,8 +172,9 @@ position = Vector2(454, 235)
 
 [node name="Jugador" parent="." unique_id=729986226 instance=ExtResource("3_7oex1")]
 light_mask = 0
-position = Vector2(126, 46)
+position = Vector2(601, 244)
 rotation = 3.1415927
+CoolDownRate = 0.3
 
 [node name="Guardia1" type="Node2D" parent="." unique_id=1851664971]
 
@@ -204,3 +205,11 @@ position = Vector2(-1, -112)
 [node name="Guardia" parent="Guardia2" unique_id=902558142 node_paths=PackedStringArray("Puntos") instance=ExtResource("7_4vydk")]
 position = Vector2(-3, -113)
 Puntos = [NodePath("../Marker2D"), NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D4")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1764287477]
+z_index = -1
+offset_left = -106.0
+offset_top = -70.0
+offset_right = 910.0
+offset_bottom = 577.0
+color = Color(0.112189464, 0.039668344, 0.22264385, 1)

@@ -5,8 +5,11 @@ class_name jugador
 @onready var guia : Polygon2D = $Polygon2D
 
 @onready var raycast : RayCast2D = $Sprite2D/RayCast2D
-
 @export var velocidad = 5000.0
+
+@onready var CoolDownSombra : TextureProgressBar = $CanvasLayer/TextureProgressBar
+@export var CoolDownRate : float = 0.1
+@export var CantidadDeSangreAbsorvida : float = 30
 
 var rotacionActual : float = 0
 
@@ -19,6 +22,7 @@ var escondido := false
 
 func _ready() -> void:
 	crear_loop_flotar()
+	CoolDownSombra.value = 0
 
 func _physics_process(delta: float) -> void:
 	var direccion := Input.get_vector("ui_down", "ui_up","ui_left","ui_right")
@@ -44,16 +48,35 @@ func _physics_process(delta: float) -> void:
 	sprite.look_at(get_global_mouse_position()) 
 	sprite.global_rotation += (PI/180*90)
 	
+	#si esta en las sombras y tiene energia y presiona esconderse
 	if sombra == true and Input.is_action_just_pressed("Esconderse"):
-		if !escondido:
+		if !escondido and CoolDownSombra.value > 0.0:
 			entrandoModoSombra()
 		elif escondido:
 			saliendoModoSombra()
 	
-	if escondido and !sombra:
+	if escondido:
+		if CoolDownSombra.value > 0:
+			CoolDownSombra.value -= CoolDownRate
+		
+	if !escondido:
+		if CoolDownSombra.value < 100:
+			CoolDownSombra.value += CoolDownRate
+	
+	if escondido and !sombra or escondido and CoolDownSombra.value == 0:
 		saliendoModoSombra()
 	
+	
+	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("click"):
+		$AnimationPlayer.play("Ataque")
+
+func recargarSombra():
+	if CoolDownSombra.value < 100:
+		CoolDownSombra.value += CantidadDeSangreAbsorvida
+		
 
 func EntroSombra():
 	sombra = true

@@ -45,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	
 	#si el jugador esta detras, mirando al guardia, este puede morir
 	if jugadorEnRangoDetras and Input.is_action_just_pressed("click") and jugadorEnRangoDetras.puedeAtacar:
+		jugadorEnRangoDetras.recargarSombra()
+		await get_tree().create_timer(0.5).timeout
 		die()
 	
 	move_and_slide()
@@ -89,6 +91,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
 		$Timer.start()
 		jugadorEnRangoAdelante = body
+		$AnimationPlayer.play("Ataque")
 
 func _on_hit_box_body_exited(body: Node2D) -> void:
 	#jugador fuera de rango de ataque
