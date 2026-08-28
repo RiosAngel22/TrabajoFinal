@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjhg3jcp381uv"]
 
-[ext_resource type="Script" uid="uid://cyga5k8nxywv2" path="res://escenas/sombra.gd" id="1_axf4w"]
+[ext_resource type="Script" uid="uid://cyga5k8nxywv2" path="res://scripts/sombra.gd" id="1_axf4w"]
 
 [sub_resource type="Gradient" id="Gradient_4vydk"]
 offsets = PackedFloat32Array(1)

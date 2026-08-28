@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://csp3h4g8cgnob"]
+
+[ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://scripts/detector.gd" id="1_ifd6n"]
+[ext_resource type="Script" uid="uid://by6qq42h44iox" path="res://escenas/luz.gd" id="1_uwohv"]
+[ext_resource type="Texture2D" uid="uid://ceqx0cmce88f4" path="res://sprites/Luz.png" id="2_7bknf"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7oex1"]
+points = PackedVector2Array(-38, -38, -24, 28, 0, 102, 24, 30, 37, -34, 26, -76, 0, -98, -26, -79)
+
+[node name="LuzMortal" type="Node2D" unique_id=849608489]
+script = ExtResource("1_uwohv")
+
+[node name="luzEmisora" type="PointLight2D" parent="." unique_id=1859240898]
+texture_filter = 1
+position = Vector2(-1, 109.00001)
+scale = Vector2(0.7, 1.6)
+color = Color(1, 1, 0.59607846, 1)
+energy = 50.0
+shadow_enabled = true
+texture = ExtResource("2_7bknf")
+offset = Vector2(0, -126.05)
+texture_scale = 0.5
+
+[node name="Detector" type="Node2D" parent="." unique_id=922751814 node_paths=PackedStringArray("raycast", "area")]
+position = Vector2(0, -2)
+script = ExtResource("1_ifd6n")
+raycast = NodePath("RayCast2D")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Detector" unique_id=1320835764]
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector/Area2D" unique_id=2059196068]
+position = Vector2(0, -94)
+shape = SubResource("ConvexPolygonShape2D_7oex1")
+
+[node name="RayCast2D" type="RayCast2D" parent="Detector" unique_id=474190334]
+collision_mask = 11
+metadata/_edit_lock_ = true
+
+[connection signal="Detectado" from="Detector" to="." method="_on_detector_detectado"]

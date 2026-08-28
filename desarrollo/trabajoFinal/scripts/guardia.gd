@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var Detector : detector
 
 @export var Puntos : Array[Marker2D]
+@export var Icono : Sprite2D
+
 var ObjetivoActual : Marker2D
 var PuntoActual : int
 
@@ -12,12 +14,16 @@ var jugadorEncontrado : jugador
 var jugadorEnRangoAdelante : jugador
 var jugadorEnRangoDetras : jugador
 
+var TweenIcono
+
 func _ready() -> void:
 	#seteamos la siguiente posicion del guardia
 	ObjetivoActual = Puntos[0]
 	PuntoActual = 0
 	Detector.Detectado.connect(_on_detector_detectado)
 	$Imagen.material.set_shader_parameter("color", Color.TRANSPARENT)
+	
+	crear_loop_flotar()
 
 
 func _physics_process(delta: float) -> void:
@@ -28,8 +34,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		merodear(delta)
 	
+	if jugadorEnRangoDetras and jugadorEnRangoDetras.puedeAtacar:
+		Icono.visible = true
+	else:
+		Icono.visible = false
+	
+	#mantiene el icono de ui estatico
+	Icono.global_rotation = 0
+	Icono.global_position = Vector2(global_position.x,global_position.y-20) 
+	
 	#si el jugador esta detras, mirando al guardia, este puede morir
-	if jugadorEnRangoDetras and Input.is_action_just_pressed("click") and jugadorEnRangoDetras.puedeAtacar == true:
+	if jugadorEnRangoDetras and Input.is_action_just_pressed("click") and jugadorEnRangoDetras.puedeAtacar:
 		die()
 	
 	move_and_slide()
@@ -101,3 +116,12 @@ func _on_hurt_box_body_exited(body: Node2D) -> void:
 
 func die():
 	queue_free()
+
+func crear_loop_flotar():
+	if !TweenIcono:
+		TweenIcono = create_tween()
+		TweenIcono.set_ease(Tween.EASE_IN_OUT)
+		TweenIcono.set_trans(Tween.TRANS_CIRC)
+		TweenIcono.tween_property(Icono,"scale",Icono.scale*1.1,0.9)
+		TweenIcono.tween_property(Icono,"scale",Icono.scale*0.9,0.9)
+		TweenIcono.set_loops()

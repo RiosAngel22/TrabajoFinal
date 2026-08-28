@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tr45svaxkcpc"]
 
-[ext_resource type="Script" uid="uid://dyf4208itt4f8" path="res://jugador.gd" id="1_jpodt"]
+[ext_resource type="Script" uid="uid://dyf4208itt4f8" path="res://scripts/jugador.gd" id="1_jpodt"]
 [ext_resource type="Texture2D" uid="uid://crajcim5pwuvo" path="res://sprites/vampiro.png" id="2_njcx7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]

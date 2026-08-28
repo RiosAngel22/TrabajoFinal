@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dihn8qct3erkr"]
 
 [ext_resource type="Texture2D" uid="uid://cn8eg4uwkftma" path="res://sprites/armario.png" id="1_4aonu"]
-[ext_resource type="Script" uid="uid://dw8ihdgpo22nt" path="res://escenas/mueble.gd" id="1_jaqn2"]
+[ext_resource type="Script" uid="uid://dw8ihdgpo22nt" path="res://scripts/mueble.gd" id="1_jaqn2"]
 [ext_resource type="Texture2D" uid="uid://bnx2soqnnrtc5" path="res://sprites/controlable.png" id="3_6imys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw4w5"]

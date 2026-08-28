@@ -1,22 +1,11 @@
 [gd_scene format=3 uid="uid://dw33puwj6gqm5"]
 
 [ext_resource type="Texture2D" uid="uid://cruebpcsl66mf" path="res://sprites/caballero.png" id="1_n1as5"]
-[ext_resource type="Script" uid="uid://cw7ge4hs7wbbl" path="res://escenas/guardia.gd" id="1_ps7vj"]
-[ext_resource type="Shader" uid="uid://b6kevkn5wtw0h" path="res://escenas/Borde.gdshader" id="2_ps7vj"]
-[ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://detector.gd" id="2_qpqwa"]
-
-[sub_resource type="Gradient" id="Gradient_xr62k"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ps7vj"]
-gradient = SubResource("Gradient_xr62k")
-fill = 1
-fill_from = Vector2(0.5304348, 0.5173913)
-fill_to = Vector2(1, 1)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ps7vj"]
-polygon = PackedVector2Array(-1, 5, -133, -167, -133, 102, 141, 102, 141, -168, -131, -168, -76, -85, 65, -85)
+[ext_resource type="Script" uid="uid://cw7ge4hs7wbbl" path="res://scripts/guardia.gd" id="1_ps7vj"]
+[ext_resource type="Texture2D" uid="uid://ceqx0cmce88f4" path="res://sprites/Luz.png" id="2_h5xra"]
+[ext_resource type="Shader" uid="uid://b6kevkn5wtw0h" path="res://scripts/Borde.gdshader" id="2_ps7vj"]
+[ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://scripts/detector.gd" id="2_qpqwa"]
+[ext_resource type="Texture2D" uid="uid://b1xkgh1tpkrho" path="res://sprites/objetivo.png" id="4_mf7qf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mf7qf"]
 shader = ExtResource("2_ps7vj")
@@ -37,35 +26,38 @@ size = Vector2(36, 20)
 size = Vector2(30, 27)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ps7vj"]
-points = PackedVector2Array(-68, -85, 66, -85, 4, 0, -4, 0)
+points = PackedVector2Array(0, -91, 33, -81, 54, -63, 0, 0, -54, -65, -33, -83)
 
-[node name="Guardia" type="CharacterBody2D" unique_id=1571775218 node_paths=PackedStringArray("Detector") groups=["enemigo"]]
+[node name="Guardia" type="CharacterBody2D" unique_id=1571775218 node_paths=PackedStringArray("Detector", "Icono") groups=["enemigo"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_ps7vj")
 velocidad = 1000.0
 Detector = NodePath("detector")
+Icono = NodePath("Icono")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1110012862]
 light_mask = 512
 visibility_layer = 513
-color = Color(1, 1, 1, 0.25490198)
+position = Vector2(-1, -4)
+scale = Vector2(1, 0.8246527)
 range_item_cull_mask = 512
 shadow_enabled = true
 shadow_item_cull_mask = 512
-texture = SubResource("GradientTexture2D_ps7vj")
-texture_scale = 3.31
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1994157707]
-position = Vector2(1, 0)
-occluder = SubResource("OccluderPolygon2D_ps7vj")
-occluder_light_mask = 512
+texture = ExtResource("2_h5xra")
+offset = Vector2(0, -50.15)
+texture_scale = 0.54
 
 [node name="Imagen" type="Sprite2D" parent="." unique_id=1259246540]
 texture_filter = 1
 material = SubResource("ShaderMaterial_mf7qf")
 position = Vector2(0, -6)
 texture = ExtResource("1_n1as5")
+
+[node name="Icono" type="Sprite2D" parent="." unique_id=524039263]
+texture_filter = 1
+position = Vector2(0, -26)
+texture = ExtResource("4_mf7qf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1572481673]
 shape = SubResource("CircleShape2D_qpqwa")

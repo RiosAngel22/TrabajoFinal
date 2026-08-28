@@ -23,8 +23,10 @@ func _process(delta: float) -> void:
 			global_rotation = lerp(global_rotation,global_rotation + 0.5, 0.5)
 		elif Input.is_action_just_pressed("rotar-"):
 			global_rotation = lerp(global_rotation,global_rotation - 0.5, 0.5)
-		#mantemos el icono sin rotar
-		Icono.global_rotation = 0
+		
+	#mantiene el icono de ui estatico
+	Icono.global_rotation = 0
+	Icono.global_position = Vector2(global_position.x,global_position.y-30) 
 	
 	#si esta en rango, aceptamos el input del jugador
 	if EnRango:
