@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cyga5k8nxywv2" path="res://scripts/sombra.gd" id="1_axf4w"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_axf4w"]
+light_mode = 2
+
 [sub_resource type="Gradient" id="Gradient_4vydk"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
@@ -13,6 +16,7 @@ gradient = SubResource("Gradient_4vydk")
 size = Vector2(21.333334, 21.333334)
 
 [node name="Sombra" type="PointLight2D" unique_id=73104488]
+material = SubResource("CanvasItemMaterial_axf4w")
 color = Color(1, 1, 1, 0.7411765)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_txhqv")

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bw86qh15n5ieq" path="res://sprites/cooldownUnder.png" id="5_as36m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq70"]
-size = Vector2(42, 20)
+size = Vector2(42, 33)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]
 radius = 15.033297
@@ -73,6 +73,15 @@ _data = {
 &"RESET": SubResource("Animation_ovq70")
 }
 
+[sub_resource type="Gradient" id="Gradient_ovq70"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_as36m"]
+gradient = SubResource("Gradient_ovq70")
+fill = 1
+fill_from = Vector2(0.510917, 0.52401745)
+fill_to = Vector2(1, 1)
+
 [node name="Jugador" type="CharacterBody2D" unique_id=729986226 groups=["jugador"]]
 collision_layer = 18
 collision_mask = 13
@@ -101,6 +110,7 @@ collision_mask = 4
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Sprite2D2/Area2D" unique_id=465845231]
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_ovq70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046802547]
@@ -132,5 +142,12 @@ scale = Vector2(3, 3)
 step = 0.1
 texture_under = ExtResource("4_ovq70")
 texture_progress = ExtResource("5_as36m")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=223621670]
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_as36m")
+texture_scale = 19.1
 
 [connection signal="body_entered" from="Sprite2D/Sprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]

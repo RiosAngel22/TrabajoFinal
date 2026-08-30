@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://by6qq42h44iox" path="res://scripts/luz.gd" id="1_uwohv"]
 [ext_resource type="Texture2D" uid="uid://ceqx0cmce88f4" path="res://sprites/Luz.png" id="2_7bknf"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uwohv"]
+light_mode = 2
+
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7oex1"]
 points = PackedVector2Array(-38, -38, -24, 28, 0, 102, 24, 30, 37, -34, 26, -76, 0, -98, -26, -79)
 
@@ -12,10 +15,11 @@ script = ExtResource("1_uwohv")
 
 [node name="luzEmisora" type="PointLight2D" parent="." unique_id=1859240898]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_uwohv")
 position = Vector2(-1, 109.00001)
 scale = Vector2(0.7, 1.6)
 color = Color(1, 1, 0.59607846, 1)
-energy = 50.0
+energy = 16.0
 shadow_enabled = true
 texture = ExtResource("2_7bknf")
 offset = Vector2(0, -126.05)

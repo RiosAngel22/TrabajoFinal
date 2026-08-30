@@ -1,18 +1,59 @@
 [gd_scene format=3 uid="uid://bv84338ayliag"]
 
+[ext_resource type="Shader" uid="uid://b6kevkn5wtw0h" path="res://scripts/Borde.gdshader" id="1_5rmjr"]
+[ext_resource type="Script" uid="uid://dg7cggnjvsv6e" path="res://scripts/objetivo.gd" id="1_8lafu"]
 [ext_resource type="Texture2D" uid="uid://d3mjgxqdsngjq" path="res://sprites/rey.png" id="1_55tey"]
+[ext_resource type="Texture2D" uid="uid://b1xkgh1tpkrho" path="res://sprites/objetivo.png" id="3_8d03w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8d03w"]
+shader = ExtResource("1_5rmjr")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55tey"]
 size = Vector2(96, 60)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rmjr"]
+size = Vector2(158, 108)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8lafu"]
+light_mode = 2
+
 [node name="Objetivo" type="StaticBody2D" unique_id=1636198691 groups=["rey"]]
 collision_layer = 4
 collision_mask = 3
+script = ExtResource("1_8lafu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=105019825]
+light_mask = 2
+visibility_layer = 2
 texture_filter = 1
+material = SubResource("ShaderMaterial_8d03w")
 scale = Vector2(3, 3)
 texture = ExtResource("1_55tey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1758994974]
 shape = SubResource("RectangleShape2D_55tey")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1917709068]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1733106362]
+shape = SubResource("RectangleShape2D_5rmjr")
+
+[node name="Icono" type="Sprite2D" parent="." unique_id=877205381]
+visible = false
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_8lafu")
+position = Vector2(0, -52)
+texture = ExtResource("3_8d03w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

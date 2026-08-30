@@ -109,3 +109,7 @@ func crear_loop_flotar():
 		TweenIcono.tween_property(Icono,"scale",Icono.scale*1.1,0.9)
 		TweenIcono.tween_property(Icono,"scale",Icono.scale*0.9,0.9)
 		TweenIcono.set_loops()
+
+
+func _on_imagen_hidden() -> void:
+	print("escondido")
