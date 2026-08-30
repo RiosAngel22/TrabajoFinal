@@ -1,13 +1,12 @@
 extends CharacterBody2D
 class_name jugador
+@export var velocidad = 5000.0
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var guia : Polygon2D = $Polygon2D
-
 @onready var raycast : RayCast2D = $Sprite2D/RayCast2D
-@export var velocidad = 5000.0
-
 @onready var CoolDownSombra : TextureProgressBar = $CanvasLayer/TextureProgressBar
+
 @export var CoolDownRate : float = 0.1
 @export var CantidadDeSangreAbsorvida : float = 30
 
@@ -15,9 +14,11 @@ var rotacionActual : float = 0
 var tweenflotacion : Tween
 
 var puedeAtacar := false
-
 var sombra := false
 var escondido := false
+
+signal gano
+signal perdio
 
 func _ready() -> void:
 	crear_loop_flotar()
@@ -110,9 +111,12 @@ func crear_loop_flotar():
 
 func die():
 	#funcion de morir
+	perdio.emit()
 	queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigo"):
 		body.die()
+	elif body.is_in_group("rey"):
+		gano.emit()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csp3h4g8cgnob"]
 
 [ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://scripts/detector.gd" id="1_ifd6n"]
-[ext_resource type="Script" uid="uid://by6qq42h44iox" path="res://escenas/luz.gd" id="1_uwohv"]
+[ext_resource type="Script" uid="uid://by6qq42h44iox" path="res://scripts/luz.gd" id="1_uwohv"]
 [ext_resource type="Texture2D" uid="uid://ceqx0cmce88f4" path="res://sprites/Luz.png" id="2_7bknf"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7oex1"]

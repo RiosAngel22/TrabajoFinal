@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bv84338ayliag"]
+
+[ext_resource type="Texture2D" uid="uid://d3mjgxqdsngjq" path="res://sprites/rey.png" id="1_55tey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55tey"]
+size = Vector2(96, 60)
+
+[node name="Objetivo" type="StaticBody2D" unique_id=1636198691 groups=["rey"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=105019825]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_55tey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1758994974]
+shape = SubResource("RectangleShape2D_55tey")
