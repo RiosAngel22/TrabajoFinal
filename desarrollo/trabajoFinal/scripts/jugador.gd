@@ -7,8 +7,12 @@ class_name jugador
 @onready var raycast : RayCast2D = $Sprite2D/RayCast2D
 @onready var CoolDownSombra : TextureProgressBar = $CanvasLayer/TextureProgressBar
 
+@onready var iconoSombra : icono = $icono
+
 @export var CoolDownRate : float = 0.1
 @export var CantidadDeSangreAbsorvida : float = 30
+
+
 
 var rotacionActual : float = 0
 var tweenflotacion : Tween
@@ -19,12 +23,17 @@ var escondido := false
 
 signal gano
 signal perdio
+signal menu
 
 func _ready() -> void:
 	crear_loop_flotar()
-	CoolDownSombra.value = 0
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("menu"):
+		menu.emit()
 
 func _physics_process(delta: float) -> void:
+	#movimiento
 	var direccion := Input.get_vector("ui_down", "ui_up","ui_left","ui_right")
 	if direccion.x:
 		velocity.y = -direccion.x * (velocidad * delta)
@@ -55,13 +64,21 @@ func _physics_process(delta: float) -> void:
 		elif escondido:
 			saliendoModoSombra()
 	
+	#vaciar energia
 	if escondido:
 		if CoolDownSombra.value > 0:
 			CoolDownSombra.value -= CoolDownRate
-		
+			
+	#llenar energia
 	if !escondido:
 		if CoolDownSombra.value < 100:
 			CoolDownSombra.value += CoolDownRate
+	
+	#icono si estamos pisando las sombras
+	if sombra == true and escondido == false and CoolDownSombra.value > 0.0:
+		iconoSombra.mostrar()
+	else:
+		iconoSombra.ocultar()
 	
 	if escondido and !sombra or escondido and CoolDownSombra.value == 0:
 		saliendoModoSombra()
@@ -74,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.play("Ataque")
 
 func recargarSombra():
+	#si atacamos, recarga energia de sombra
 	if CoolDownSombra.value < 100:
 		CoolDownSombra.value += CantidadDeSangreAbsorvida
 		
@@ -91,6 +109,8 @@ func entrandoModoSombra():
 	set_collision_layer_value(2,false)
 	escondido = true
 	
+	iconoSombra.ocultar()
+	
 func saliendoModoSombra():
 	sprite.visible = true
 	guia.visible = false
@@ -100,7 +120,7 @@ func saliendoModoSombra():
 
 
 func crear_loop_flotar():
-	#funcion de flotacion constante
+	#funcion de flotacion constante del personaje
 	if !tweenflotacion:
 		tweenflotacion = create_tween()
 		tweenflotacion.set_ease(Tween.EASE_IN_OUT)

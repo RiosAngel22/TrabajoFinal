@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3qtrntxqldnq"]
+
+[ext_resource type="Script" uid="uid://b6u0m2e6600l5" path="res://scripts/icono.gd" id="1_rja8y"]
+
+[node name="Icono" type="Node2D" unique_id=1942827803]
+script = ExtResource("1_rja8y")

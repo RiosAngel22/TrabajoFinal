@@ -172,10 +172,6 @@ rotation = 1.5541816
 position = Vector2(438.99997, 296.75)
 scale = Vector2(6.7499995, 1.1953126)
 
-[node name="Sombra2" parent="." unique_id=1722805353 instance=ExtResource("7_txhqv")]
-position = Vector2(262.00003, 227.5)
-scale = Vector2(1.2031251, 0.9843749)
-
 [node name="mueble" parent="." unique_id=577772092 instance=ExtResource("4_4vydk")]
 position = Vector2(19, 100)
 
@@ -218,7 +214,7 @@ rotation = 3.1415927
 
 [node name="Jugador" parent="." unique_id=729986226 instance=ExtResource("3_7oex1")]
 light_mask = 0
-position = Vector2(119, 62)
+position = Vector2(151, 48)
 rotation = -3.1415925
 CoolDownRate = 0.3
 
@@ -231,8 +227,8 @@ anchor_left = -0.09200001
 anchor_top = -0.108
 anchor_right = 0.79
 anchor_bottom = 0.892
-offset_left = 2.9840088
-offset_top = -1.0159988
-offset_right = 331.91998
-offset_bottom = 150.98401
+offset_left = 59.98401
+offset_top = 69.984
+offset_right = 388.91998
+offset_bottom = 221.98401
 Jugador = NodePath("../../Jugador")

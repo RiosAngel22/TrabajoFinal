@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c7puxxobhwywb" path="res://sprites/Garras.png" id="3_njcx7"]
 [ext_resource type="Texture2D" uid="uid://b780sq0rw6sdm" path="res://sprites/cooldownTop.png" id="4_ovq70"]
 [ext_resource type="Texture2D" uid="uid://bw86qh15n5ieq" path="res://sprites/cooldownUnder.png" id="5_as36m"]
+[ext_resource type="Script" uid="uid://b6u0m2e6600l5" path="res://scripts/icono.gd" id="6_gjfif"]
+[ext_resource type="Texture2D" uid="uid://cockg8bce6wc8" path="res://sprites/sombras.png" id="7_4mp40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq70"]
 size = Vector2(42, 33)
@@ -113,6 +115,13 @@ monitoring = false
 position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_ovq70")
 
+[node name="icono" type="Node2D" parent="." unique_id=786327713]
+script = ExtResource("6_gjfif")
+textura = ExtResource("7_4mp40")
+Offset = Vector2(0, -30)
+Angulo = 180.0
+metadata/_custom_type_script = "uid://b6u0m2e6600l5"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046802547]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_lgngo")
@@ -129,7 +138,6 @@ libraries/ = SubResource("AnimationLibrary_as36m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=530527099]
 layer = 5
-visible = false
 follow_viewport_enabled = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1952641670]
@@ -140,10 +148,12 @@ offset_right = -29.0
 offset_bottom = -31.0
 scale = Vector2(3, 3)
 step = 0.1
+value = 100.0
 texture_under = ExtResource("4_ovq70")
 texture_progress = ExtResource("5_as36m")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=223621670]
+energy = 0.5
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2

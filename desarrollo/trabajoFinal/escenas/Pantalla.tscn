@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://b5ervg2qgyoyk"]
 
 [ext_resource type="Script" uid="uid://cc0jp7e5xe56v" path="res://scripts/pantalla.gd" id="1_47aqd"]
+[ext_resource type="Texture2D" uid="uid://bnx2soqnnrtc5" path="res://sprites/controlable.png" id="2_a3elg"]
+[ext_resource type="Texture2D" uid="uid://b1xkgh1tpkrho" path="res://sprites/objetivo.png" id="3_aq55t"]
+[ext_resource type="Texture2D" uid="uid://cockg8bce6wc8" path="res://sprites/sombras.png" id="4_hl448"]
 
-[node name="Control" type="Control" unique_id=1920781098]
+[node name="Pantalla" type="Control" unique_id=1920781098]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -106.0
-offset_top = -70.0
-offset_right = 910.0
-offset_bottom = 578.0
+offset_right = 1016.0
+offset_bottom = 648.0
 script = ExtResource("1_47aqd")
 
 [node name="Victoria" type="ColorRect" parent="." unique_id=1047759077]
@@ -96,6 +97,99 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Reiniciar"
+
+[node name="Guia" type="ColorRect" parent="." unique_id=691074648]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.73380464, 0.7363124, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Guia" unique_id=1036318309]
+texture_filter = 1
+layout_mode = 0
+offset_left = 68.0
+offset_top = 105.0
+offset_right = 142.0
+offset_bottom = 178.0
+texture = ExtResource("2_a3elg")
+
+[node name="TextureRect2" type="TextureRect" parent="Guia" unique_id=1440880848]
+texture_filter = 1
+layout_mode = 0
+offset_left = 69.0
+offset_top = 265.0
+offset_right = 143.0
+offset_bottom = 338.0
+texture = ExtResource("3_aq55t")
+
+[node name="TextureRect3" type="TextureRect" parent="Guia" unique_id=693588729]
+texture_filter = 1
+layout_mode = 0
+offset_left = 68.0
+offset_top = 471.0
+offset_right = 142.0
+offset_bottom = 544.0
+texture = ExtResource("4_hl448")
+
+[node name="Label" type="Label" parent="Guia" unique_id=7861717]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16800001
+anchor_top = 0.069000006
+anchor_right = 0.64400005
+anchor_bottom = 0.287
+offset_left = 0.3119812
+offset_top = 0.28799438
+offset_right = -0.30407715
+offset_bottom = 0.024002075
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Si ves este icono en un objeto azul, al apretar E puedes controlarlo con el mouse"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Guia" unique_id=1401526994]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.171
+anchor_top = 0.32700002
+anchor_right = 0.647
+anchor_bottom = 0.551
+offset_left = 0.2639923
+offset_top = 0.10398865
+offset_right = -0.35198975
+offset_bottom = -0.04800415
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Si ves este icono en un enemigo rojo, al mirarlo y usar click izquierdo, puedes atacarlo, recargando la energia para esconderse"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Guia" unique_id=345603015]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.171
+anchor_top = 0.6
+anchor_right = 0.647
+anchor_bottom = 0.818
+offset_left = 0.2639923
+offset_top = 0.19998169
+offset_right = -0.35198975
+offset_bottom = -0.06402588
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Si ves este icono cuando entras en las sombras, al apretar espacio te puedes esconder"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Victoria/Button" to="." method="reset"]
 [connection signal="pressed" from="Derrota/Button" to="." method="reset"]

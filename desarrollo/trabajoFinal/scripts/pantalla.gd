@@ -6,17 +6,28 @@ class_name pantalla
 
 @export var Jugador : jugador 
 
+var mostrandoGuia = false
+
 func _ready() -> void:
 	Jugador.gano.connect(mostrarVictoria)
 	Jugador.perdio.connect(mostrarDerrota)
+	Jugador.menu.connect(mostrarGuia)
 
-func mostrarVictoria():
+func mostrarGuia()->void:
+	if mostrandoGuia:
+		$Guia.hide()
+		mostrandoGuia = false
+	else:
+		$Guia.show()
+		mostrandoGuia = true
+
+func mostrarVictoria()->void:
 	$Victoria.show()
 	
-func mostrarDerrota():
+func mostrarDerrota()->void:
 	$Derrota.show()
 
-func reset():
+func reset()->void:
 	$Victoria.hide()
 	$Derrota.hide()
 	get_tree().reload_current_scene()
