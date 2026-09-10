@@ -136,7 +136,7 @@ texture = ExtResource("5_7oex1")
 3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_txhqv"]
-occlusion_layer_0/light_mask = 643
+occlusion_layer_0/light_mask = 1023
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7oex1")
 sources/1 = SubResource("TileSetAtlasSource_4vydk")
@@ -222,6 +222,7 @@ CoolDownRate = 0.3
 layer = 99
 
 [node name="Control" parent="CanvasLayer" unique_id=1920781098 node_paths=PackedStringArray("Jugador") instance=ExtResource("10_jh10v")]
+visible = false
 anchors_preset = -1
 anchor_left = -0.09200001
 anchor_top = -0.108

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://blhuckwkpwe4s"]
+
+[ext_resource type="Script" uid="uid://d2u4c2q1ev6ml" path="res://scripts/oscurecedor.gd" id="1_vl1to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0x0g"]
+size = Vector2(194.54987, 198)
+
+[node name="Area2D" type="Area2D" unique_id=545382826]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vl1to")
+
+[node name="Oscurecedor" type="ColorRect" parent="." unique_id=681306824]
+light_mask = 0
+offset_right = 216.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1288034234]
+position = Vector2(108, 108)
+shape = SubResource("RectangleShape2D_o0x0g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
