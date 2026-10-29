@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c7puxxobhwywb" path="res://sprites/Garras.png" id="3_njcx7"]
 [ext_resource type="Texture2D" uid="uid://b780sq0rw6sdm" path="res://sprites/cooldownTop.png" id="4_ovq70"]
 [ext_resource type="Texture2D" uid="uid://bw86qh15n5ieq" path="res://sprites/cooldownUnder.png" id="5_as36m"]
+[ext_resource type="AudioStream" uid="uid://3g1fkngan4xh" path="res://Sonidos/Bite.wav" id="6_4mp40"]
 [ext_resource type="Script" uid="uid://b6u0m2e6600l5" path="res://scripts/icono.gd" id="6_gjfif"]
 [ext_resource type="Texture2D" uid="uid://cockg8bce6wc8" path="res://sprites/sombras.png" id="7_4mp40"]
 
@@ -12,7 +13,7 @@
 size = Vector2(42, 33)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]
-radius = 15.033297
+radius = 17.0
 
 [sub_resource type="Animation" id="Animation_xutah"]
 resource_name = "Ataque"
@@ -75,15 +76,6 @@ _data = {
 &"RESET": SubResource("Animation_ovq70")
 }
 
-[sub_resource type="Gradient" id="Gradient_ovq70"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_as36m"]
-gradient = SubResource("Gradient_ovq70")
-fill = 1
-fill_from = Vector2(0.510917, 0.52401745)
-fill_to = Vector2(1, 1)
-
 [node name="Jugador" type="CharacterBody2D" unique_id=729986226 groups=["jugador"]]
 collision_layer = 18
 collision_mask = 13
@@ -92,6 +84,7 @@ velocidad = 10000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085744936]
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_njcx7")
 metadata/_edit_lock_ = true
 
@@ -133,6 +126,9 @@ modulate = Color(0, 1, 1, 1)
 light_mask = 0
 polygon = PackedVector2Array(0, -16, -13, -34, 13, -34)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=374978598]
+stream = ExtResource("6_4mp40")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1390615874]
 libraries/ = SubResource("AnimationLibrary_as36m")
 
@@ -152,12 +148,7 @@ value = 100.0
 texture_under = ExtResource("4_ovq70")
 texture_progress = ExtResource("5_as36m")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=223621670]
-energy = 0.5
-range_item_cull_mask = 2
-shadow_enabled = true
-shadow_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_as36m")
-texture_scale = 19.1
+[node name="CaptureArea" type="Marker2D" parent="." unique_id=1541999899]
+position = Vector2(0, -17)
 
 [connection signal="body_entered" from="Sprite2D/Sprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -25,9 +25,11 @@ func _process(delta: float) -> void:
 	if EnRango:
 		if Input.is_action_just_pressed("interactuar") and controlado == false:
 			controlado = true
+			$Agarrar.play()
 			
 		elif Input.is_action_just_pressed("interactuar") and controlado == true:
 			controlado = false
+			$Soltar.play()
 		
 	
 	#informacion en pantalla sobre rango y posesion del objeto
@@ -35,13 +37,12 @@ func _process(delta: float) -> void:
 		Icono.mostrar()
 		Objeto.material.set_shader_parameter("color", Color("00ffff"))
 
-	elif EnRango and controlado:
-		Objeto.material.set_shader_parameter("color", Color("00ffff"))
+	if EnRango and controlado:
 		Icono.ocultar()
 		
-	elif !EnRango:
+	if !EnRango:
 		Icono.ocultar()
-		Objeto.material.set_shader_parameter("color", Color.GRAY)
+		Objeto.material.set_shader_parameter("color", Color.WHITE)
 		
 
 func _on_area_telepatia_body_entered(body: Node2D) -> void:

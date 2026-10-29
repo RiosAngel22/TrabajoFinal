@@ -12,8 +12,7 @@ var tweenSprite : Tween
 func _ready() -> void:
 	sprite = Sprite2D.new()
 	add_child(sprite)
-	sprite.global_position = Vector2(global_position.x - Offset.x,global_position.y - Offset.y)
-	sprite.global_rotation_degrees = Angulo
+	sprite.global_position = Vector2(get_parent().global_position.x - Offset.x,get_parent().global_position.y - Offset.y)
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	sprite.texture = textura
 	
@@ -21,6 +20,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	global_rotation_degrees = 0
+	sprite.global_position = Vector2(get_parent().global_position.x - Offset.x,get_parent().global_position.y - Offset.y)
+
 
 func mostrar():
 	sprite.visible = true

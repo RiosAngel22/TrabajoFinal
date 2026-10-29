@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3mg04gdpy236" path="res://scripts/detector.gd" id="1_ifd6n"]
 [ext_resource type="Script" uid="uid://by6qq42h44iox" path="res://scripts/luz.gd" id="1_uwohv"]
 [ext_resource type="Texture2D" uid="uid://ceqx0cmce88f4" path="res://sprites/Luz.png" id="2_7bknf"]
+[ext_resource type="AudioStream" uid="uid://cfbp1phy42teg" path="res://Sonidos/Burn.wav" id="4_vxo8k"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uwohv"]
 light_mode = 2
@@ -43,5 +44,8 @@ shape = SubResource("ConvexPolygonShape2D_7oex1")
 [node name="RayCast2D" type="RayCast2D" parent="Detector" unique_id=474190334]
 collision_mask = 11
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2018270651]
+stream = ExtResource("4_vxo8k")
 
 [connection signal="Detectado" from="Detector" to="." method="_on_detector_detectado"]

@@ -138,5 +138,10 @@ func die():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigo"):
 		body.die()
+		$AudioStreamPlayer2D.play()
+		
 	elif body.is_in_group("rey"):
-		gano.emit()
+		if body.Final:
+			gano.emit()
+		elif !body.Final:
+			body.cambiarDeEscena()

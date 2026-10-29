@@ -77,6 +77,7 @@ func seguir(delta:float)->void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	#jugador en rango de ataque
 	if body.is_in_group("jugador"):
+		$AudioStreamPlayer2D.play()
 		body.die()
 
 	
