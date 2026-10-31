@@ -25,6 +25,8 @@ signal gano
 signal perdio
 signal menu
 
+var vida : float = 100.0
+
 func _ready() -> void:
 	crear_loop_flotar()
 
@@ -44,6 +46,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direccion.y * (velocidad * delta)
 	else:
 		velocity.x = lerp(velocity.x,0.0,0.3)
+	
+	if Input.is_action_just_pressed("dash"):
+		velocidad = velocidad * 2
+		await get_tree().create_timer(0.4).timeout
+		velocidad = velocidad / 2
 	
 	#nos aseguramos de que el jugador mire al enemigo para poder atacar
 	if raycast.is_colliding() and raycast.get_collider():
@@ -84,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		saliendoModoSombra()
 	
 	
+	$CanvasLayer/ProgressBar.value = vida
 	
 	move_and_slide()
 	
@@ -129,8 +137,19 @@ func crear_loop_flotar():
 		tweenflotacion.tween_property(sprite,"scale",sprite.scale*0.9,0.9)
 		tweenflotacion.set_loops()
 
+func hit(daño : float)->void:
+	vida -= daño
+	if vida < 1:
+		vida = 0
+		die()
+	
+func heal(curacion : float)->void:
+	vida += curacion
+	if vida > 100:
+		vida = 100
+
 func die():
-	#funcion de morir
+	#funcion de morirz
 	perdio.emit()
 	queue_free()
 

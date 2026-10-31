@@ -15,6 +15,8 @@ extends CharacterBody2D
 var ObjetivoActual : Marker2D
 var PuntoActual : int
 
+var ataco = false
+
 var jugadorEncontrado : jugador
 
 var TweenIcono
@@ -30,8 +32,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	#si ve al jugador lo sigue, sino, camina normal
-	if jugadorEncontrado:
+	if jugadorEncontrado and !ataco:
 		seguir(delta)
+	elif jugadorEncontrado and ataco:
+		alejarse(delta)
 	else:
 		merodear(delta)
 	
@@ -42,6 +46,13 @@ func _physics_process(delta: float) -> void:
 func _on_detector_detectado(jugador : CharacterBody2D) -> void:
 	#el guardia ve al jugador
 	jugadorEncontrado = jugador
+	$TimerOlvidar.stop()
+
+func olvidar():
+	if jugadorEncontrado:
+		$TimerOlvidar.start()
+		await $TimerOlvidar.timeout
+		jugadorEncontrado = null
 
 func merodear(delta:float)->void:
 	#funcion para seguir una ruta
@@ -70,15 +81,29 @@ func seguir(delta:float)->void:
 	look_at(jugadorEncontrado.global_position)
 	global_rotation = global_rotation + (PI/180*90)
 	
-	if jugadorEncontrado.global_position.distance_to(global_position) <= 30 and Raycast.is_colliding():
+	if jugadorEncontrado.global_position.distance_to(global_position) <= 40 and Raycast.is_colliding():
 		$AnimationPlayer.play("Ataque")
+		ataco = true
 
+func alejarse(delta: float)->void:
+	var direccion : Vector2
+	
+	#mira y se aleja del jugador
+	if jugadorEncontrado:
+		direccion = (jugadorEncontrado.global_position + global_position).normalized()
+		velocity = direccion * (velocidad * 3 * delta)
+		look_at(jugadorEncontrado.global_position)
+		global_rotation = global_rotation + (PI/180*90)
+	
+	await get_tree().create_timer(1).timeout
+	ataco = false
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	#jugador en rango de ataque
 	if body.is_in_group("jugador"):
 		$AudioStreamPlayer2D.play()
-		body.die()
+		body.hit(20)
+		
 
 	
 func _on_hurt_box_body_entered(body: Node2D) -> void:
