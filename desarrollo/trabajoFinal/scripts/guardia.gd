@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 @onready var Icono : icono = $icono
 @onready var guardia : Sprite2D = $Imagen
+@onready var timer : Timer = $TimerOlvidar
 
 var ObjetivoActual : Marker2D
 var PuntoActual : int
@@ -20,12 +21,14 @@ var ataco = false
 var jugadorEncontrado : jugador
 
 var TweenIcono
+var jugadorEnPosicion :bool=false
 
 func _ready() -> void:
 	#seteamos la siguiente posicion del guardia
 	ObjetivoActual = Puntos[0]
 	PuntoActual = 0
 	Detector.Detectado.connect(_on_detector_detectado)
+	Detector.Perdido.connect(olvidar)
 	guardia.material.set_shader_parameter("color", Color.TRANSPARENT)
 	Icono.ocultar()
 
@@ -46,12 +49,12 @@ func _physics_process(delta: float) -> void:
 func _on_detector_detectado(jugador : CharacterBody2D) -> void:
 	#el guardia ve al jugador
 	jugadorEncontrado = jugador
-	$TimerOlvidar.stop()
+	timer.stop()
 
 func olvidar():
-	if jugadorEncontrado:
-		$TimerOlvidar.start()
-		await $TimerOlvidar.timeout
+	if jugadorEncontrado and timer != null:
+		timer.start()
+		await timer.timeout
 		jugadorEncontrado = null
 
 func merodear(delta:float)->void:
@@ -111,12 +114,15 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
 		guardia.material.set_shader_parameter("color", Color.RED)
 		Icono.mostrar()
+		jugadorEnPosicion = true
 
 func _on_hurt_box_body_exited(body: Node2D) -> void:
 	#el guardia se alejo del jugador
 	if body.is_in_group("jugador"):
 		guardia.material.set_shader_parameter("color", Color.TRANSPARENT)
 		Icono.ocultar()
+		jugadorEnPosicion = false
 
 func die():
-	queue_free()
+	if jugadorEnPosicion:
+		queue_free()

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cockg8bce6wc8" path="res://sprites/sombras.png" id="7_4mp40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq70"]
-size = Vector2(42, 33)
+size = Vector2(26.666668, 18.833332)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lgngo"]
 radius = 17.0
@@ -121,7 +121,7 @@ collision_mask = 4
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Sprite2D2/Area2D" unique_id=465845231]
-position = Vector2(0, -6.5)
+position = Vector2(0, 4.416666)
 shape = SubResource("RectangleShape2D_ovq70")
 
 [node name="icono" type="Node2D" parent="." unique_id=786327713]
@@ -174,8 +174,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_4mp40")
 theme_override_styles/fill = SubResource("StyleBoxFlat_e85mw")
 value = 100.0
 show_percentage = false
-
-[node name="CaptureArea" type="Marker2D" parent="." unique_id=1541999899]
-position = Vector2(0, -17)
 
 [connection signal="body_entered" from="Sprite2D/Sprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -11,7 +11,7 @@ light_mode = 2
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7oex1"]
 points = PackedVector2Array(-38, -38, -24, 28, 0, 102, 24, 30, 37, -34, 26, -76, 0, -98, -26, -79)
 
-[node name="LuzMortal" type="Node2D" unique_id=849608489]
+[node name="Luz" type="Node2D" unique_id=849608489]
 script = ExtResource("1_uwohv")
 
 [node name="luzEmisora" type="PointLight2D" parent="." unique_id=1859240898]

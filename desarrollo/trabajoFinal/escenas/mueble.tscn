@@ -99,7 +99,7 @@ shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jaqn2"]
-radius = 124.0
+radius = 92.021736
 
 [node name="mueble" type="CharacterBody2D" unique_id=1948388359]
 collision_layer = 8
