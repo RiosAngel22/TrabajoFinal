@@ -450,7 +450,6 @@ offset_bottom = 33.0
 text = "presiona Esc para instrucciones"
 
 [node name="Sombras" type="Node2D" parent="." unique_id=1059871326]
-visible = false
 
 [node name="Area2D" parent="Sombras" unique_id=545382826 node_paths=PackedStringArray("cercanos") instance=ExtResource("10_jcqeh")]
 position = Vector2(3, 3)

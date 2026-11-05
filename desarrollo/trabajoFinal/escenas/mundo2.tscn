@@ -271,7 +271,7 @@ ProximaEscena = ExtResource("6_wwvyn")
 
 [node name="Jugador" parent="." unique_id=729986226 instance=ExtResource("6_wlrvh")]
 light_mask = 0
-position = Vector2(505, 576)
+position = Vector2(85, 579)
 rotation = -3.1415925
 CoolDownRate = 0.3
 
