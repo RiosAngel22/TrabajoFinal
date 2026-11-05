@@ -225,7 +225,6 @@ wait_time = 4.0
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1607129967]
-debug_enabled = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]
