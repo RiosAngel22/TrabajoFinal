@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var Icono : icono = $icono
 @onready var guardia : Sprite2D = $Imagen
 @onready var timer : Timer = $TimerOlvidar
+@onready var navegador : NavigationAgent2D = $NavigationAgent2D
+
 
 var ObjetivoActual : Marker2D
 var PuntoActual : int
@@ -26,6 +28,7 @@ var jugadorEnPosicion :bool=false
 func _ready() -> void:
 	#seteamos la siguiente posicion del guardia
 	ObjetivoActual = Puntos[0]
+	navegador.target_position = ObjetivoActual.global_position
 	PuntoActual = 0
 	Detector.Detectado.connect(_on_detector_detectado)
 	Detector.Perdido.connect(olvidar)
@@ -62,9 +65,10 @@ func merodear(delta:float)->void:
 	var direccion : Vector2
 	
 	#mira y sigue un objetivo
-	direccion = (ObjetivoActual.global_position - global_position).normalized()
+	navegador.target_position = ObjetivoActual.global_position
+	direccion = (navegador.get_next_path_position() - global_position).normalized()
 	velocity = direccion * (velocidad * 2 * delta)
-	look_at(ObjetivoActual.global_position)
+	look_at(navegador.get_next_path_position())
 	global_rotation = global_rotation + (PI/180*90)
 	
 	#busca el siguiente objetivo
@@ -74,14 +78,18 @@ func merodear(delta:float)->void:
 			PuntoActual = 0
 		
 		ObjetivoActual = Puntos[PuntoActual]
+		navegador.target_position = ObjetivoActual.global_position
+
 	
 func seguir(delta:float)->void:
 	var direccion : Vector2
 	
 	#mira y sigue al jugador
-	direccion = (jugadorEncontrado.global_position - global_position).normalized()
+	
+	navegador.target_position = jugadorEncontrado.global_position
+	direccion = (navegador.get_next_path_position() - global_position).normalized()
 	velocity = direccion * (velocidad * 3 * delta)
-	look_at(jugadorEncontrado.global_position)
+	look_at(navegador.get_next_path_position())
 	global_rotation = global_rotation + (PI/180*90)
 	
 	if jugadorEncontrado.global_position.distance_to(global_position) <= 40 and Raycast.is_colliding():
