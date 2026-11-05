@@ -27,6 +27,11 @@ func mostrarVictoria()->void:
 func mostrarDerrota()->void:
 	$Derrota.show()
 
+func restart()->void:
+	$Victoria.hide()
+	$Derrota.hide()
+	get_tree().change_scene_to_file("res://escenas/mundo.tscn")
+
 func reset()->void:
 	$Victoria.hide()
 	$Derrota.hide()

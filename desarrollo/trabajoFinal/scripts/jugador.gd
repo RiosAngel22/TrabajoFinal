@@ -98,12 +98,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		$AnimationPlayer.play("Ataque")
 
-func recargarSombra():
-	#si atacamos, recarga energia de sombra
-	if CoolDownSombra.value < 100:
-		CoolDownSombra.value += CantidadDeSangreAbsorvida
-		
-
 func EntroSombra():
 	sombra = true
 
@@ -157,6 +151,8 @@ func die():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemigo"):
 		body.die()
+		#al matar enemigo, nos curamos
+		heal(10)
 		$AudioStreamPlayer2D.play()
 		
 	elif body.is_in_group("rey"):

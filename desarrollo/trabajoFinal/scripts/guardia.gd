@@ -44,8 +44,17 @@ func _physics_process(delta: float) -> void:
 		alejarse(delta)
 	else:
 		merodear(delta)
-	
+		
 	move_and_slide()
+	
+	if jugadorEncontrado and jugadorEncontrado.escondido == true:
+		await get_tree().create_timer(1).timeout
+		if jugadorEncontrado and jugadorEncontrado.escondido == false:
+			return
+		else:
+			jugadorEncontrado = null
+	
+	
 	
 
 

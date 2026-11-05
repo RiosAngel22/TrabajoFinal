@@ -221,7 +221,7 @@ pitch_scale = 0.76
 attenuation = 0.42044792
 
 [node name="TimerOlvidar" type="Timer" parent="." unique_id=2010193982]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1607129967]

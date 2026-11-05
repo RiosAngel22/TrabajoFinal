@@ -436,10 +436,10 @@ anchor_left = -0.09200001
 anchor_top = -0.108
 anchor_right = 0.79
 anchor_bottom = 0.892
-offset_left = 59.98401
-offset_top = 69.984
-offset_right = 388.91998
-offset_bottom = 221.98401
+offset_left = -2.0159912
+offset_top = 1.9840012
+offset_right = 326.91998
+offset_bottom = 153.98401
 Jugador = NodePath("../../Jugador")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=2037040673]

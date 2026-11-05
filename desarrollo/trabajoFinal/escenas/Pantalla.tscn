@@ -53,7 +53,23 @@ offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Reiniciar"
+text = "Reiniciar nivel"
+
+[node name="Button2" type="Button" parent="Victoria" unique_id=1966333556]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = 53.0
+offset_right = 117.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Reiniciar juego"
 
 [node name="Derrota" type="ColorRect" parent="." unique_id=421500483]
 visible = false
@@ -96,7 +112,23 @@ offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Reiniciar"
+text = "Reiniciar nivel"
+
+[node name="Button2" type="Button" parent="Derrota" unique_id=2112886623]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.5
+offset_top = 53.0
+offset_right = 174.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Reiniciar juego"
 
 [node name="Guia" type="ColorRect" parent="." unique_id=691074648]
 visible = false
@@ -192,4 +224,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [connection signal="pressed" from="Victoria/Button" to="." method="reset"]
+[connection signal="pressed" from="Victoria/Button2" to="." method="restart"]
 [connection signal="pressed" from="Derrota/Button" to="." method="reset"]
+[connection signal="pressed" from="Derrota/Button2" to="." method="restart"]
